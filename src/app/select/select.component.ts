@@ -8,6 +8,7 @@ import {
     QueryList,
     TemplateRef,
     ViewChild,
+    ViewContainerRef,
 } from "@angular/core"
 import { Connect, Effects, HostEmitter, HostRef } from "ng-effects"
 import { OptionLike, SelectLike } from "../renderless/interfaces"
@@ -95,7 +96,7 @@ export class SelectComponent<T> implements SelectLike<T> {
     @Output()
     public readonly press: HostEmitter<any>
 
-    constructor(connect: Connect) {
+    constructor(connect: Connect, viewContainerRef: ViewContainerRef) {
         this.disabled = false
         this.expanded = false
         this.options = undefined
@@ -108,6 +109,8 @@ export class SelectComponent<T> implements SelectLike<T> {
         this.placeholder = "Select"
         this.valueChange = new HostEmitter(true)
         this.press = new HostEmitter(true)
+
+        console.log(", viewContainerRef: ViewContainerRef", viewContainerRef)
 
         connect(this)
     }
