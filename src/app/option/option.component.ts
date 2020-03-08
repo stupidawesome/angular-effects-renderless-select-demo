@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, Output, ViewContainerRef } from "@angular/core"
+import { ChangeDetectionStrategy, Component, HostBinding, Input, Output } from "@angular/core"
 import { Connect, Effects, HostEmitter, HostRef } from "ng-effects"
 import { OptionLike, PressEvent } from "../renderless/interfaces"
 import { Button } from "../renderless/button"
@@ -24,7 +24,7 @@ import { Option } from "../renderless/option"
             }
 
             :host.hover {
-                background: #FFC525;
+                background: #ffc525;
             }
         `,
     ],
@@ -68,7 +68,7 @@ export class OptionComponent<T> implements OptionLike<T> {
     @Output()
     public readonly press: HostEmitter<PressEvent>
 
-    constructor(connect: Connect, viewContainerRef: ViewContainerRef) {
+    constructor(connect: Connect) {
         this.selected = false
         this.active = false
         this.disabled = false
